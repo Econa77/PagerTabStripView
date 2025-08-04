@@ -101,7 +101,7 @@ private struct WrapperPagerTabStripView<SelectionType, Content>: View where Sele
             .offset(x: translation)
             .animation(style.pagerAnimationOnTap, value: selection)
             .animation(style.pagerAnimationOnSwipe, value: translation)
-            .gesture(swipeGestureEnabled && swipeOn ?
+            .highPriorityGesture(swipeGestureEnabled && swipeOn ?
                         DragGesture(minimumDistance: 25).onChanged { value in
                             swipeOn = !(edgeSwipeGestureDisabled.contains(.left) &&
                                             (selection == pagerSettings.itemsOrderedByIndex.first && value.translation.width > 0) ||
